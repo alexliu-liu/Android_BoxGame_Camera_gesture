@@ -8,15 +8,21 @@
         android:label="@string/app_name"
         android:icon="@drawable/icon"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-
-        <activity android:name="ColorBlobDetectionActivity"
-                  android:label="@string/app_name"
-                  android:screenOrientation="landscape"
-                  android:configChanges="keyboardHidden|orientation">
-            <intent-filter>
+		<activity 
+		    android:name=".startFace"
+		    android:label="VR弹球"
+		    android:screenOrientation="portrait"
+		    android:icon="@drawable/startball"
+		    android:configChanges="keyboardHidden|orientation">
+		     <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+		</activity>
+        <activity android:name="ColorBlobDetectionActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboardHidden|orientation">
+           
         </activity>
     </application>
 

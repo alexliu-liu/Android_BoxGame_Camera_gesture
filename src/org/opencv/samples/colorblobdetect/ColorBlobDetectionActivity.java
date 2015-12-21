@@ -1,5 +1,6 @@
 package org.opencv.samples.colorblobdetect;
 
+import java.security.spec.MGF1ParameterSpec;
 import java.util.List;
 import java.util.Random;
 
@@ -18,10 +19,10 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
-import org.opencv.sample.boxGame.Ball;
-import org.opencv.sample.boxGame.Box;
-import org.opencv.sample.boxGame.BoxGame;
-import org.opencv.sample.boxGame.FrameWork;
+import org.opencv.samples.boxGame.Ball;
+import org.opencv.samples.boxGame.Box;
+import org.opencv.samples.boxGame.BoxGame;
+import org.opencv.samples.framework.FrameWork;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -47,9 +48,11 @@ public class ColorBlobDetectionActivity extends Activity implements OnTouchListe
     private BoxGame game;
     private CameraBridgeViewBase mOpenCvCameraView;
     private double  pre,now;
-    static { if (!OpenCVLoader.initDebug()) { // Handle initialization error } 
-	}
-}
+    static { 
+    	if (!OpenCVLoader.initDebug()) { 
+    	// Handle initialization error } 
+    	}
+    }
     private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
@@ -82,7 +85,7 @@ public class ColorBlobDetectionActivity extends Activity implements OnTouchListe
 
         setContentView(R.layout.color_blob_detection_surface_view);
       
-        game =new BoxGame();
+        
        
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.color_blob_detection_activity_surface_view);
         mOpenCvCameraView.setCvCameraViewListener(this);
@@ -122,6 +125,10 @@ public class ColorBlobDetectionActivity extends Activity implements OnTouchListe
         COLOR1 = new Scalar(0,255,0,255);
         COLOR2= new Scalar(0,0,255,255);
         COLOR3 = new Scalar(255,0,0,30);
+        FrameWork.getInstance().setW(mRgba.rows());
+        FrameWork.getInstance().setH(mRgba.cols());
+        game =new BoxGame();
+        
         
     }
 

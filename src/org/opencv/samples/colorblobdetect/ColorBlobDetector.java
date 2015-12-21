@@ -10,7 +10,7 @@ import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
-import org.opencv.sample.boxGame.BoxGame;
+import org.opencv.samples.boxGame.BoxGame;
 
 public class ColorBlobDetector {
     // Lower and Upper bounds for range checking in HSV color space
