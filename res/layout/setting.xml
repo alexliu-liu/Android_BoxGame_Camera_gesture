@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set rows" 
+        android:textSize="30sp"
+        android:layout_gravity="center"/>
+    
+     <Spinner
+	         android:id="@+id/rows"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_below="@+id/start"
+	         android:layout_centerHorizontal="true" 
+	          android:layout_gravity="center"
+	         />
+      
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set cols" 
+        android:textSize="30sp"
+        android:layout_gravity="center"/>
+      
+	    <Spinner
+          android:id="@+id/cols"
+          android:layout_centerHorizontal="true"
+           android:layout_below="@id/rows"
+          android:layout_width="wrap_content"
+          
+         android:layout_gravity="center"
+          android:layout_height="wrap_content"/>
+
+	 <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set speed" 
+        android:textSize="30sp"
+        android:layout_gravity="center"/> 
+	     <Spinner
+          android:id="@+id/speed"
+          android:layout_centerHorizontal="true"
+           android:layout_below="@id/cols"
+          android:layout_width="wrap_content"
+          
+         android:layout_gravity="center"
+          android:layout_height="wrap_content"/>
+
+	   
+
+</LinearLayout>
