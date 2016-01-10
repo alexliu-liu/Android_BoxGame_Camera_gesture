@@ -22,14 +22,17 @@ public class Ball extends Shape implements changeToOPencv{
 	}
 	public void move(){
 		int speed = FrameWork.getInstance().getSpeed();
+//		double prex=pos.x;
+//		double prey=pos.y;
 		pos.x+=vec.x*speed;
 		pos.y+=vec.y*speed;
 		
 		int W=FrameWork.getInstance().getW();
 		int H=FrameWork.getInstance().getH();
-		if(pos.x>W) vec.x=-1;
-		if(pos.x<0) vec.x=1;
-		if(pos.y>H) vec.y=-1;
+		if(pos.x>W) {vec.x=-1;return;}
+		if(pos.x<0) {vec.x=1;return;}
+		if(pos.y>H) {vec.y=-1;return;}
+		
 		double l,r,u,d;
 		l=pos.x-R/2;
 		r=pos.x+R/2;
@@ -40,25 +43,28 @@ public class Ball extends Shape implements changeToOPencv{
 		up=down=left=right=false;
 		for (Box b:game.getBoxs()) {
 			if(!b.isExist()) continue;
-			double L,R,U,D;
-			L=b.getX()-b.getWidth()/2;
-			R=b.getX()+b.getWidth()/2;
-			U=b.getY()+b.getHeight()/2;
-			D=b.getY()-b.getHeight()/2;
-			double maxW=Math.max(R,r)-Math.min(L,l);
-			double maxH=Math.max(U,u)-Math.min(D,d);
+			double bL,bR,bU,bD;
+			bL=b.getX()-b.getWidth()/2;
+			bR=b.getX()+b.getWidth()/2;
+			bU=b.getY()+b.getHeight()/2;
+			bD=b.getY()-b.getHeight()/2;
+			double maxW=Math.max(bR,r)-Math.min(bL,l);
+			double maxH=Math.max(bU,u)-Math.min(bD,d);
 			
-			if(maxW>=b.getWidth()+R && maxH>=b.getHeight()+R) continue;
+			if(maxW>=b.getWidth()+R || maxH>=b.getHeight()+R) continue;
 //			if(prey<=b.getY() && pos.y>b.getY() && pos.x<){ up=true;b.setExist(false);}
 //			if(prey>=b.getY() && pos.y<b.getY()) {down=true;b.setExist(false);}
 //			if(prex<=b.getX() && pos.x>b.getX()) {right=true;b.setExist(false);}
 //			if(prex>=b.getX() && pos.x<b.getX()) {left=true;b.setExist(false);}
 //			if(BoxIn(b)){
 //				touch=true;
-				if(touchDownBox(b)) {down=true;b.setExist(false);}
-				if(touchUpBox(b)) {up=true;b.setExist(false);}
-				if(touchLeftBox(b)) {left=true;b.setExist(false);}
-				if(touchRightBox(b)) {right=true;b.setExist(false);}
+//			Log.i("maxW","maxWpos.x: "+pos.x+"  pos.y: "+pos.y+"  R :"+R);
+//			Log.i("maxW"," maxW bX: "+b.getX()+"  bY: "+b.getY()+"  W :"+b.getWidth()+" H: "+b.getHeight());
+//			Log.i("maxW"," maxW  jiange W: "+maxW+" jiange H: "+maxH);
+				if(vec.y==-1 && pos.y>=b.getY()) {down=true;b.setExist(false);}//touchDownBox(b)
+				if(vec.y==1 && pos.y<=b.getY()) {up=true;b.setExist(false);}//touchUpBox(b)
+				if(vec.x==-1 && pos.x>=b.getX()) {left=true;b.setExist(false);}//touchLeftBox(b)
+				if(vec.x==1 && pos.x<=b.getX()) {right=true;b.setExist(false);}//touchRightBox(b)
 //				if(up) vec.y=-1;
 //				else if(down) vec.y=1;
 //				if(right) vec.x=-1;
@@ -122,26 +128,26 @@ public class Ball extends Shape implements changeToOPencv{
 		}
 		return false;
 	}
-	public boolean touchLeftBox(Box b){
-		return BoxIn(b) && vec.x==-1;
-		
-	}
-
-	public boolean touchRightBox(Box b){
-		return BoxIn(b) && vec.x==1;
-		
-	}
-	
-
-	public boolean touchDownBox(Box b){
-		return BoxIn(b) && vec.y==-1;
-		
-	}
-	
-
-	public boolean touchUpBox(Box b){
-		return BoxIn(b) && vec.y==1;
-		
-	}
+//	public boolean touchLeftBox(Box b){
+//		return BoxIn(b) && vec.x==-1;
+//		
+//	}
+//
+//	public boolean touchRightBox(Box b){
+//		return BoxIn(b) && vec.x==1;
+//		
+//	}
+//	
+//
+//	public boolean touchDownBox(Box b){
+//		return BoxIn(b) && vec.y==-1;
+//		
+//	}
+//	
+//
+//	public boolean touchUpBox(Box b){
+//		return BoxIn(b) && vec.y==1;
+//		
+//	}
 	
 }

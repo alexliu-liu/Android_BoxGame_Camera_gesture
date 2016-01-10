@@ -1,5 +1,6 @@
 package org.opencv.samples.colorblobdetect;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +10,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 
 public class Setting extends Activity{
-Spinner rows,cols,speed;
+	Spinner rows,cols,speed;
 	
 	private void initRows(){
 		List<String> list = new ArrayList<String>();
@@ -25,7 +26,9 @@ Spinner rows,cols,speed;
 		list.add("3");
 		list.add("4");
 		list.add("5");
-		
+		list.add("6");
+		list.add("7");
+		list.add("8");
 		 adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);    
 		 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 
 		rows.setAdapter(adapter);    
@@ -96,6 +99,11 @@ Spinner rows,cols,speed;
 		list.add("60");
 		list.add("70");
 		list.add("80");
+		list.add("90");
+		list.add("100");
+		list.add("110");
+		list.add("120");
+		list.add("130");
 		
 		 adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);    
 		 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 

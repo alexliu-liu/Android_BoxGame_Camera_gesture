@@ -44,7 +44,7 @@ public class FrameWork {
 			setCol(6);
 			setSpeed(30);
 			setHand_speed(30);
-			setPicture_width(10);
+			setPicture_width(1);
 		}
 		return framework;
 	}

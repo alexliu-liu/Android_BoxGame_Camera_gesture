@@ -1,7 +1,6 @@
 package org.opencv.samples.boxGame;
 
 import java.util.List;
-import java.util.Random;
 
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
@@ -29,7 +28,7 @@ public class Box extends Shape implements changeToOPencv{
 //    	 int r=rand.nextInt()%256;
 //    	 int g=rand.nextInt()%256;
 //    	 int b=rand.nextInt()%256;
-    	 color=new Scalar(255,0,0);
+    	 color=new Scalar(0,255,0);
 		
 	}
 	public Scalar getColor() {
